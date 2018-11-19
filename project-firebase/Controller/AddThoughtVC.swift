@@ -7,28 +7,56 @@
 //
 
 import UIKit
+import Firebase
 
-class AddThoughtVC: UIViewController {
-
+class AddThoughtVC: UIViewController, UITextViewDelegate {
+    
+    // Outlets
+    @IBOutlet var sc_category: UISegmentedControl!
+    @IBOutlet var tf_username: UITextField!
+    @IBOutlet var tv_text: UITextView!
+    @IBOutlet var btn_post: UIButton!
+    
+    // Variables
+    private var selectedCategory = "funny"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        tv_text.layer.cornerRadius = 4
+        btn_post.layer.cornerRadius = 4
+        tv_text.text = "Add text..."
+        tv_text.textColor = UIColor.lightGray
+        tv_text.delegate = self
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    // Delegate
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.text = ""
+        textView.textColor = UIColor.darkGray
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // Action
+    @IBAction func postBtn_action(_ sender: Any) {
+        Firestore.firestore().collection("testdb").addDocument(data: [
+            "category" : selectedCategory,
+            "numComments" : 0,
+            "numLikes" : 0,
+            "text" : tv_text.text,
+            "timestamp" : FieldValue.serverTimestamp(),
+            "username" : tf_username.text!
+        ]) { (err) in
+            if let err = err {
+                debugPrint("Error adding document: \(err)")
+            } else {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
-    */
+    
+    @IBAction func categoryChange_action(_ sender: Any) {
+
+    }
+    
+    
 
 }
