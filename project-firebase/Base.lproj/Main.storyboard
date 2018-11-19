@@ -51,6 +51,9 @@
                                     <segment title="crazy"/>
                                 </segments>
                                 <color key="tintColor" red="0.96078431369999995" green="0.50980392159999999" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="categoryChange_action:" destination="2RG-N2-8NR" eventType="valueChanged" id="CW2-jq-Ms8"/>
+                                </connections>
                             </segmentedControl>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SAS-lb-HhD">
                                 <rect key="frame" x="20" y="136" width="335" height="17"/>
@@ -79,6 +82,9 @@
                                 <state key="normal" title="Post">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="postBtn_action:" destination="2RG-N2-8NR" eventType="touchUpInside" id="8xE-9T-P4E"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -98,6 +104,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DTO-g2-gcy"/>
                     </view>
+                    <connections>
+                        <outlet property="btn_post" destination="Rcn-3z-KBB" id="oNL-28-OP2"/>
+                        <outlet property="sc_category" destination="c9P-57-TKx" id="QV6-LG-U7R"/>
+                        <outlet property="tf_username" destination="SAS-lb-HhD" id="20a-IY-TNN"/>
+                        <outlet property="tv_text" destination="0HW-GL-RY8" id="OKe-Yw-dZC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sHT-vO-lHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
