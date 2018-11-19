@@ -18,7 +18,7 @@ class AddThoughtVC: UIViewController, UITextViewDelegate {
     @IBOutlet var btn_post: UIButton!
     
     // Variables
-    private var selectedCategory = "funny"
+    private var selectedCategory = CategoryEnum.funny.rawValue
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,13 +37,14 @@ class AddThoughtVC: UIViewController, UITextViewDelegate {
     
     // Action
     @IBAction func postBtn_action(_ sender: Any) {
-        Firestore.firestore().collection("testdb").addDocument(data: [
-            "category" : selectedCategory,
-            "numComments" : 0,
-            "numLikes" : 0,
-            "text" : tv_text.text,
-            "timestamp" : FieldValue.serverTimestamp(),
-            "username" : tf_username.text!
+        guard let username = tf_username.text else { return }
+        Firestore.firestore().collection(TESTDB_REF).addDocument(data: [
+            CATEGORY : selectedCategory,
+            NUM_COMMENTS : 0,
+            NUM_LIKES : 0,
+            TEXT : tv_text.text,
+            TIMESTAMP : FieldValue.serverTimestamp(),
+            USERNAME : username
         ]) { (err) in
             if let err = err {
                 debugPrint("Error adding document: \(err)")
@@ -54,7 +55,17 @@ class AddThoughtVC: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func categoryChange_action(_ sender: Any) {
-
+        let index = sc_category.selectedSegmentIndex
+        switch index {
+        case 0:
+            selectedCategory = CategoryEnum.funny.rawValue
+        case 1:
+            selectedCategory = CategoryEnum.serious.rawValue
+        case 2:
+            selectedCategory = CategoryEnum.crazy.rawValue
+        default:
+            selectedCategory = CategoryEnum.funny.rawValue
+        }
     }
     
     

@@ -8,6 +8,13 @@
 
 import UIKit
 
+enum CategoryEnum : String {
+    case serious
+    case funny
+    case crazy
+    case popular
+}
+
 class MainVC: UIViewController {
     
     override func viewDidLoad() {
