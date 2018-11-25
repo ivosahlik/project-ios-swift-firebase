@@ -20,6 +20,13 @@ import Firebase
 
 FirebaseApp.configure()
 
+## shortcut
+
+commit - alt cmd c
+
+library - cmd shift l
+
+
 
 
 
