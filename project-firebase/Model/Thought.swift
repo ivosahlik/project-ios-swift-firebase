@@ -10,12 +10,12 @@ import Foundation
 
 class Thought {
     
-    private var username: String
-    private var timestamp: Date
-    private var text: String
-    private var numLikes: Int
-    private var numComments: Int
-    private var documentId: String
+    private(set) var username: String
+    private(set) var timestamp: Date
+    private(set) var text: String
+    private(set) var numLikes: Int
+    private(set) var numComments: Int
+    private(set) var documentId: String
     
     init(username: String, timestamp: Date, text: String, numLikes: Int, numComments: Int, documentId:  String) {
         self.username = username
