@@ -58,7 +58,11 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         print("Selected category: \(selectedCategory)")
         
-        thoughtsListener = thoughtsCollectionRef.whereField(CATEGORY, isEqualTo: selectedCategory).addSnapshotListener{(snapshot, error) in
+        thoughtsListener = thoughtsCollectionRef
+            .whereField(CATEGORY, isEqualTo: selectedCategory)
+            .order(by: TIMESTAMP, descending: true)
+            .addSnapshotListener{(snapshot, error) in
+                
             if let err = error {
                 print("Error fetching docs: \(err)")
             } else {

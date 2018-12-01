@@ -26,7 +26,18 @@ class ThoughtCell: UITableViewCell {
         username_label.text = thought.username
         text_label.text = thought.text
         likesNum_label.text = String(thought.numLikes)
+        timestamp_label.text = getTimestampFormat(thought: thought, format: "MMM d, hh:mm")
+    }
     
+    /*
+     This method return timestamp format
+     param: Thought
+     param: String
+    */
+    func getTimestampFormat(thought: Thought, format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: thought.timestamp)
     }
 
 }

@@ -26,6 +26,10 @@ commit - alt cmd c
 
 library - cmd shift l
 
+## library
+https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html
+https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html
+
 
 
 
