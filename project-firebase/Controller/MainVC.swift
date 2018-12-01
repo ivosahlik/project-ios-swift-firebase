@@ -38,41 +38,64 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        thoughtsCollectionRef.getDocuments { (snapshot, error) in
+        
+        thoughtsCollectionRef.addSnapshotListener{(snapshot, error) in
             if let err = error {
-                 print("DEBUG 2")
                 print("Error fetching docs: \(err)")
             } else {
-                print("DEBUG 1")
+                self.thoughts.removeAll()
                 guard let snap = snapshot else {return}
                 for document in snap.documents {
-                    //print(document.data())
                     let data = document.data()
                     let username = data["username"] as? String ?? "Anonymous"
-                    print(username)
-                    
-                    let timestamp = data["timestamp"] as? Date ?? Date()
-                    let formatter = DateFormatter()
-                    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                    let timestampFormat = formatter.string(from: timestamp)
-                    print(timestampFormat)
-                    
                     let text = data["text"] as? String ?? ""
-                    print(text)
-                    
+                    let timestamp = data["timestamp"] as? Date ?? Date()
                     let numLikes = data["numLikes"] as? Int ?? 0
                     let numComments = data["numComments"] as? Int ?? 0
-                    
-                    let category = data["category"] as? String ?? "crazy"
                     let documentId = document.documentID
-                    print("DocumentID: \(documentId)")
-                    
                     let newThought = Thought(username: username, timestamp: timestamp, text: text, numLikes: numLikes, numComments:numComments, documentId: documentId)
                     self.thoughts.append(newThought)
                 }
                 self.tableView.reloadData()
             }
         }
+    
+        
+//        thoughtsCollectionRef.getDocuments { (snapshot, error) in
+//            if let err = error {
+//                 print("DEBUG 2")
+//                print("Error fetching docs: \(err)")
+//            } else {
+//                print("DEBUG 1")
+//                guard let snap = snapshot else {return}
+//                for document in snap.documents {
+//                    //print(document.data())
+//                    let data = document.data()
+//                    let username = data["username"] as? String ?? "Anonymous"
+//                    print(username)
+//
+//                    let timestamp = data["timestamp"] as? Date ?? Date()
+//                    let formatter = DateFormatter()
+//                    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//                    let timestampFormat = formatter.string(from: timestamp)
+//                    print(timestampFormat)
+//
+//                    let text = data["text"] as? String ?? ""
+//                    print(text)
+//
+//                    let numLikes = data["numLikes"] as? Int ?? 0
+//                    let numComments = data["numComments"] as? Int ?? 0
+//
+//                    let category = data["category"] as? String ?? "crazy"
+//                    let documentId = document.documentID
+//                    print("DocumentID: \(documentId)")
+//
+//                    let newThought = Thought(username: username, timestamp: timestamp, text: text, numLikes: numLikes, numComments:numComments, documentId: documentId)
+//                    self.thoughts.append(newThought)
+//                }
+//                self.tableView.reloadData()
+//            }
+//        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
