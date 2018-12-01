@@ -19,8 +19,8 @@ enum CategoryEnum : String {
 class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // Outlets
-    @IBOutlet private weak var segmentControll: UISegmentedControl!
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet weak var segmentControll: UISegmentedControl!
+    @IBOutlet weak var tableView: UITableView!
     
     // Variables
     private var thoughts = [Thought]()
@@ -31,8 +31,8 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         print("DEBUG 4")
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.estimatedRowHeight = 80
-        tableView.rowHeight = UITableView.automaticDimension
+        //tableView.rowHeight = UITableView.automaticDimension
+        //tableView.estimatedRowHeight = 80
         print("DEBUG 3")
         thoughtsCollectionRef = Firestore.firestore().collection(TESTDB_REF)
     }
@@ -44,9 +44,33 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 print("Error fetching docs: \(err)")
             } else {
                 print("DEBUG 1")
-                for document in ((snapshot?.documents)!) {
-                    print(document.data())
+                guard let snap = snapshot else {return}
+                for document in snap.documents {
+                    //print(document.data())
+                    let data = document.data()
+                    let username = data["username"] as? String ?? "Anonymous"
+                    print(username)
+                    
+                    let timestamp = data["timestamp"] as? Date ?? Date()
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    let timestampFormat = formatter.string(from: timestamp)
+                    print(timestampFormat)
+                    
+                    let text = data["text"] as? String ?? ""
+                    print(text)
+                    
+                    let numLikes = data["numLikes"] as? Int ?? 0
+                    let numComments = data["numComments"] as? Int ?? 0
+                    
+                    let category = data["category"] as? String ?? "crazy"
+                    let documentId = document.documentID
+                    print("DocumentID: \(documentId)")
+                    
+                    let newThought = Thought(username: username, timestamp: timestamp, text: text, numLikes: numLikes, numComments:numComments, documentId: documentId)
+                    self.thoughts.append(newThought)
                 }
+                self.tableView.reloadData()
             }
         }
     }

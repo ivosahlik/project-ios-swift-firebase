@@ -12,12 +12,10 @@ class ThoughtCell: UITableViewCell {
     
     // Outputs
     @IBOutlet weak var username_label: UILabel!
+    @IBOutlet weak var text_label: UILabel!
     @IBOutlet weak var timestamp_label: UILabel!
-    @IBOutlet weak var textToughtLabel: UILabel!
-    @IBOutlet weak var likesImg: UIImageView!
-    @IBOutlet weak var likesNumLabel: UILabel!
-    
-    
+    @IBOutlet weak var likes_image: UIImageView!
+    @IBOutlet weak var likesNum_label: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,7 +23,10 @@ class ThoughtCell: UITableViewCell {
     }
     
     func configureCell(thought: Thought) {
-        
+        username_label.text = thought.username
+        text_label.text = thought.text
+        likesNum_label.text = String(thought.numLikes)
+    
     }
 
 }
