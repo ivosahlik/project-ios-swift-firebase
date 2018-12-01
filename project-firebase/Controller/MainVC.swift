@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 enum CategoryEnum : String {
     case serious
@@ -18,16 +19,36 @@ enum CategoryEnum : String {
 class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // Outlets
-    @IBOutlet private weak var segmentControl: UISegmentedControl!
+    @IBOutlet private weak var segmentControll: UISegmentedControl!
     @IBOutlet private weak var tableView: UITableView!
     
     // Variables
     private var thoughts = [Thought]()
+    private var thoughtsCollectionRef: CollectionReference!
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("DEBUG 4")
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.estimatedRowHeight = 80
+        tableView.rowHeight = UITableView.automaticDimension
+        print("DEBUG 3")
+        thoughtsCollectionRef = Firestore.firestore().collection(TESTDB_REF)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        thoughtsCollectionRef.getDocuments { (snapshot, error) in
+            if let err = error {
+                 print("DEBUG 2")
+                print("Error fetching docs: \(err)")
+            } else {
+                print("DEBUG 1")
+                for document in ((snapshot?.documents)!) {
+                    print(document.data())
+                }
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

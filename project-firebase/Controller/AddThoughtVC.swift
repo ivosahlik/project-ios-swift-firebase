@@ -35,7 +35,7 @@ class AddThoughtVC: UIViewController, UITextViewDelegate {
         textView.textColor = UIColor.darkGray
     }
     
-    // Action
+    // Post Action
     @IBAction func postBtn_action(_ sender: Any) {
         guard let username = tf_username.text else { return }
         Firestore.firestore().collection(TESTDB_REF).addDocument(data: [
