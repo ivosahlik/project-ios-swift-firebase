@@ -63,6 +63,8 @@ class AddThoughtVC: UIViewController, UITextViewDelegate {
             selectedCategory = CategoryEnum.serious.rawValue
         case 2:
             selectedCategory = CategoryEnum.crazy.rawValue
+        case 3:
+            selectedCategory = CategoryEnum.popular.rawValue
         default:
             selectedCategory = CategoryEnum.funny.rawValue
         }

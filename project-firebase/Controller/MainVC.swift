@@ -9,13 +9,6 @@
 import UIKit
 import Firebase
 
-enum CategoryEnum : String {
-    case serious
-    case funny
-    case crazy
-    case popular
-}
-
 class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // Outlets
@@ -25,6 +18,8 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // Variables
     private var thoughts = [Thought]()
     private var thoughtsCollectionRef: CollectionReference!
+    private var thoughtsListener: ListenerRegistration!
+    private var selectedCategory = CategoryEnum.funny.rawValue
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +32,33 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         thoughtsCollectionRef = Firestore.firestore().collection(TESTDB_REF)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    // Action
+    @IBAction func categoryChanged(_ sender: Any) {
+        print("DEBUG: categoryChanged")
+        let index = segmentControll.selectedSegmentIndex
+        print("DEBUG: \(index)")
+        switch index {
+        case 0:
+            selectedCategory = CategoryEnum.funny.rawValue
+        case 1:
+            selectedCategory = CategoryEnum.serious.rawValue
+        case 2:
+            selectedCategory = CategoryEnum.crazy.rawValue
+        case 3:
+            selectedCategory = CategoryEnum.popular.rawValue
+        default:
+            selectedCategory = CategoryEnum.funny.rawValue
+        }
         
-        thoughtsCollectionRef.addSnapshotListener{(snapshot, error) in
+        thoughtsListener.remove()
+        setListener()
+    }
+    
+    func setListener() {
+        
+        print("Selected category: \(selectedCategory)")
+        
+        thoughtsListener = thoughtsCollectionRef.whereField(CATEGORY, isEqualTo: selectedCategory).addSnapshotListener{(snapshot, error) in
             if let err = error {
                 print("Error fetching docs: \(err)")
             } else {
@@ -59,6 +78,14 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setListener()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        thoughtsListener.remove()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
