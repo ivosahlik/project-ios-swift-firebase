@@ -155,7 +155,6 @@
                                     <segment title="funny"/>
                                     <segment title="serious"/>
                                     <segment title="crazy"/>
-                                    <segment title="popular"/>
                                 </segments>
                                 <color key="tintColor" red="0.96078431369999995" green="0.50980392159999999" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
