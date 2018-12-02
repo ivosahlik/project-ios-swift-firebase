@@ -22,6 +22,7 @@
 		1D0BA70E21AB542900BA1F0A /* ThoughtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0BA70D21AB542900BA1F0A /* ThoughtCell.swift */; };
 		1DB47A9821B3457D00CCD10E /* CategoryEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB47A9721B3457D00CCD10E /* CategoryEnum.swift */; };
 		1DB47A9A21B478A500CCD10E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB47A9921B478A500CCD10E /* LoginVC.swift */; };
+		1DB47A9C21B4856200CCD10E /* CreateUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB47A9B21B4856200CCD10E /* CreateUserVC.swift */; };
 		228685742A135DAE229D2AAB /* Pods_project_firebaseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF17FEDDEA1688048FA7A591 /* Pods_project_firebaseUITests.framework */; };
 		6122251B7DDF08E765DFC81E /* Pods_project_firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC5ADF50729E76C281B7B71 /* Pods_project_firebase.framework */; };
 		FE3EAB0962072E31509D65A7 /* Pods_project_firebaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F429402056C98A3A340294 /* Pods_project_firebaseTests.framework */; };
@@ -68,6 +69,7 @@
 		1D0BA70D21AB542900BA1F0A /* ThoughtCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtCell.swift; sourceTree = "<group>"; };
 		1DB47A9721B3457D00CCD10E /* CategoryEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEnum.swift; sourceTree = "<group>"; };
 		1DB47A9921B478A500CCD10E /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		1DB47A9B21B4856200CCD10E /* CreateUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserVC.swift; sourceTree = "<group>"; };
 		52E04D5B66889561C5BCDF8C /* Pods-project-firebaseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project-firebaseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-project-firebaseTests/Pods-project-firebaseTests.release.xcconfig"; sourceTree = "<group>"; };
 		8DC5ADF50729E76C281B7B71 /* Pods_project_firebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_project_firebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF17FEDDEA1688048FA7A591 /* Pods_project_firebaseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_project_firebaseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +180,7 @@
 				1D0BA70021A34CE300BA1F0A /* MainVC.swift */,
 				1D0BA70421A3526200BA1F0A /* AddThoughtVC.swift */,
 				1DB47A9921B478A500CCD10E /* LoginVC.swift */,
+				1DB47A9B21B4856200CCD10E /* CreateUserVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				1D0BA6C821A3151500BA1F0A /* AppDelegate.swift in Sources */,
 				1D0BA70E21AB542900BA1F0A /* ThoughtCell.swift in Sources */,
 				1D0BA70121A34CE300BA1F0A /* MainVC.swift in Sources */,
+				1DB47A9C21B4856200CCD10E /* CreateUserVC.swift in Sources */,
 				1D0BA70821A36B4D00BA1F0A /* Constants.swift in Sources */,
 				1DB47A9821B3457D00CCD10E /* CategoryEnum.swift in Sources */,
 			);

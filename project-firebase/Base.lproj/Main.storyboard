@@ -258,7 +258,7 @@
                                     <constraint firstAttribute="height" constant="40" id="YoV-N8-l3t"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                <state key="normal" title="Create User">
+                                <state key="normal" title="Sign up">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -312,7 +312,103 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQR-uB-Qvq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-522" y="-562"/>
+            <point key="canvasLocation" x="-2055" y="206"/>
+        </scene>
+        <!--Create UserVC-->
+        <scene sceneID="nCu-Tc-Pnq">
+            <objects>
+                <viewController id="Xv0-Pg-10n" customClass="CreateUserVC" customModule="project_firebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F2a-Q2-XlL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="email" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mRI-bT-bd9">
+                                <rect key="frame" x="20" y="40" width="335" height="30"/>
+                                <color key="backgroundColor" white="0.94246419274166671" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0wv-RL-OiR"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="jpassword" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qpp-N0-d35">
+                                <rect key="frame" x="20" y="90" width="335" height="30"/>
+                                <color key="backgroundColor" white="0.94246419274166671" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Xf3-zD-U0a"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="username: public" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="164-DF-gza">
+                                <rect key="frame" x="20" y="140" width="335" height="30"/>
+                                <color key="backgroundColor" white="0.94246419274166671" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="oK7-JK-s4n"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWR-dG-G4x">
+                                <rect key="frame" x="112" y="242" width="150" height="40"/>
+                                <color key="backgroundColor" red="0.21176470588235294" green="0.21176470588235294" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7l8-8Z-QfO"/>
+                                    <constraint firstAttribute="width" constant="150" id="IFQ-tc-zyy"/>
+                                </constraints>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelActon:" destination="Xv0-Pg-10n" eventType="touchUpInside" id="JHo-7c-4W5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALg-43-CMn">
+                                <rect key="frame" x="112.5" y="186" width="150" height="40"/>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.50980392159999999" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="POa-jD-8qJ"/>
+                                    <constraint firstAttribute="height" constant="40" id="c7t-Ou-ykF"/>
+                                </constraints>
+                                <state key="normal" title="Create User">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="createUserAction:" destination="Xv0-Pg-10n" eventType="touchUpInside" id="0j2-3n-8zY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mRI-bT-bd9" firstAttribute="top" secondItem="aRC-nU-gxA" secondAttribute="top" constant="20" id="4kC-AR-jh8"/>
+                            <constraint firstItem="Qpp-N0-d35" firstAttribute="top" secondItem="mRI-bT-bd9" secondAttribute="bottom" constant="20" id="ABp-KG-NJr"/>
+                            <constraint firstItem="aRC-nU-gxA" firstAttribute="trailing" secondItem="Qpp-N0-d35" secondAttribute="trailing" constant="20" id="Btw-Ii-Q6E"/>
+                            <constraint firstItem="nWR-dG-G4x" firstAttribute="top" secondItem="ALg-43-CMn" secondAttribute="bottom" constant="16" id="GRf-sY-Jwh"/>
+                            <constraint firstItem="aRC-nU-gxA" firstAttribute="trailing" secondItem="mRI-bT-bd9" secondAttribute="trailing" constant="20" id="H0O-hh-0he"/>
+                            <constraint firstItem="ALg-43-CMn" firstAttribute="top" secondItem="164-DF-gza" secondAttribute="bottom" constant="16" id="NDq-I4-bk5"/>
+                            <constraint firstItem="ALg-43-CMn" firstAttribute="centerX" secondItem="F2a-Q2-XlL" secondAttribute="centerX" id="YYa-SQ-yuv"/>
+                            <constraint firstItem="aRC-nU-gxA" firstAttribute="trailing" secondItem="164-DF-gza" secondAttribute="trailing" constant="20" id="gLC-r6-9YQ"/>
+                            <constraint firstItem="164-DF-gza" firstAttribute="top" secondItem="Qpp-N0-d35" secondAttribute="bottom" constant="20" id="gjo-bF-IMV"/>
+                            <constraint firstItem="mRI-bT-bd9" firstAttribute="leading" secondItem="aRC-nU-gxA" secondAttribute="leading" constant="20" id="ot8-I3-Xu4"/>
+                            <constraint firstItem="164-DF-gza" firstAttribute="leading" secondItem="aRC-nU-gxA" secondAttribute="leading" constant="20" id="vHs-oi-jiq"/>
+                            <constraint firstItem="Qpp-N0-d35" firstAttribute="leading" secondItem="aRC-nU-gxA" secondAttribute="leading" constant="20" id="w2M-6K-3Cx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aRC-nU-gxA"/>
+                    </view>
+                    <connections>
+                        <outlet property="cancelBtn" destination="nWR-dG-G4x" id="Vbt-Fs-Iv8"/>
+                        <outlet property="createUserBtn" destination="ALg-43-CMn" id="y8l-1J-5xb"/>
+                        <outlet property="email_tf" destination="mRI-bT-bd9" id="Wr6-Qx-0bW"/>
+                        <outlet property="password_tf" destination="Qpp-N0-d35" id="DFh-8z-XOj"/>
+                        <outlet property="username_tf" destination="164-DF-gza" id="dkW-a3-Sze"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l8Y-Cx-d0S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1311" y="206"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lea-fk-Ms0">
