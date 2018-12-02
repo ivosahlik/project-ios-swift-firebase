@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ThoughtCell: UITableViewCell {
     
@@ -17,12 +18,24 @@ class ThoughtCell: UITableViewCell {
     @IBOutlet weak var likes_image: UIImageView!
     @IBOutlet weak var likesNum_label: UILabel!
     
+    // Variables
+    private var thought: Thought!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(likeTapped))
+        likes_image.addGestureRecognizer(tap)
+        likes_image.isUserInteractionEnabled = true
+    }
+    
+    @objc func likeTapped() {
+        Firestore.firestore().collection(TESTDB_REF).document(thought.documentId)
+            .setData([NUM_LIKES : thought.numLikes + 1], merge: true)
     }
     
     func configureCell(thought: Thought) {
+        self.thought = thought
         username_label.text = thought.username
         text_label.text = thought.text
         likesNum_label.text = String(thought.numLikes)
