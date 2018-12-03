@@ -9,6 +9,9 @@ pod init
 ### Open your Podfile and add:
 pod 'Firebase/Core'
 
+https://firebase.google.com/docs/auth/ios/custom-auth
+pod 'Firebase/Auth'
+
 ### Save the file and run:
 pod install
 
@@ -29,6 +32,10 @@ library - cmd shift l
 ## library
 https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html
 https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html
+
+
+## Firebase Auth
+https://firebase.google.com/docs/auth/ios/manage-users
 
 
 
