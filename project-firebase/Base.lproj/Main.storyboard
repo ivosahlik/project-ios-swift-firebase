@@ -178,15 +178,15 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rcn-3z-KBB">
-                                <rect key="frame" x="147.5" y="273" width="80" height="35"/>
-                                <color key="backgroundColor" red="0.96078431369999995" green="0.50980392159999999" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="112.5" y="273" width="150" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.85098039215686272" blue="0.023529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="727-ls-pXl"/>
-                                    <constraint firstAttribute="height" constant="35" id="mWx-vd-bAf"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="HYC-ng-qh6"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="vBD-dC-gMf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Post">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="postBtn_action:" destination="2RG-N2-8NR" eventType="touchUpInside" id="8xE-9T-P4E"/>
@@ -201,6 +201,7 @@
                             <constraint firstItem="SAS-lb-HhD" firstAttribute="top" secondItem="c9P-57-TKx" secondAttribute="bottom" constant="12" id="IPB-WK-pFY"/>
                             <constraint firstItem="DTO-g2-gcy" firstAttribute="trailing" secondItem="SAS-lb-HhD" secondAttribute="trailing" constant="20" id="L7J-hp-COB"/>
                             <constraint firstItem="SAS-lb-HhD" firstAttribute="top" secondItem="c9P-57-TKx" secondAttribute="bottom" constant="24" id="MFN-F0-Y8b"/>
+                            <constraint firstItem="Rcn-3z-KBB" firstAttribute="centerX" secondItem="tsD-gg-IyN" secondAttribute="centerX" id="PVI-em-ot0"/>
                             <constraint firstItem="0HW-GL-RY8" firstAttribute="top" secondItem="SAS-lb-HhD" secondAttribute="bottom" constant="12" id="ekY-LM-bgW"/>
                             <constraint firstItem="DTO-g2-gcy" firstAttribute="trailing" secondItem="0HW-GL-RY8" secondAttribute="trailing" constant="20" id="fd9-b0-6SA"/>
                             <constraint firstItem="0HW-GL-RY8" firstAttribute="leading" secondItem="DTO-g2-gcy" secondAttribute="leading" constant="20" id="kEa-DM-GjT"/>
@@ -368,13 +369,14 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALg-43-CMn">
                                 <rect key="frame" x="112.5" y="186" width="150" height="40"/>
-                                <color key="backgroundColor" red="0.96078431369999995" green="0.50980392159999999" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.85098039215686272" blue="0.023529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="POa-jD-8qJ"/>
                                     <constraint firstAttribute="height" constant="40" id="c7t-Ou-ykF"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="Create User">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="createUserAction:" destination="Xv0-Pg-10n" eventType="touchUpInside" id="0j2-3n-8zY"/>
