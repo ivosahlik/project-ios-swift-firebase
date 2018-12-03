@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 class CreateUserVC: UIViewController {
     
@@ -46,7 +47,8 @@ class CreateUserVC: UIViewController {
             Firestore.firestore().collection(USERS_REF).document(userId).setData(
                 [
                     USERNAME: username,
-                    DATE_CREATED: FieldValue.serverTimestamp()
+                    DATE_CREATED: FieldValue.serverTimestamp(),
+                    ACTIVE_USER: false
                 ], completion: { (error) in
                     if let error = error {
                         debugPrint(error.localizedDescription)

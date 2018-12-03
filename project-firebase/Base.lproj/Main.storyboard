@@ -123,6 +123,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="First App with Firebase" id="B68-e3-lSA">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="22a-ew-6g3">
+                            <connections>
+                                <action selector="logoutTapped:" destination="BYZ-38-t0r" id="uvy-sv-UfO"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="addThoughtIcon" id="EoP-V1-3TT">
                             <connections>
                                 <segue destination="2RG-N2-8NR" kind="show" id="H2d-xW-nPm"/>
@@ -225,7 +230,7 @@
         <!--LoginVC-->
         <scene sceneID="i6J-nk-J6O">
             <objects>
-                <viewController id="bbz-5O-lHd" customClass="LoginVC" customModule="project_firebase" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" id="bbz-5O-lHd" customClass="LoginVC" customModule="project_firebase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Tb-9C-wC1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -263,7 +268,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="createUserBtnAction:" destination="bbz-5O-lHd" eventType="touchUpInside" id="wpd-RI-JWs"/>
+                                    <segue destination="Xv0-Pg-10n" kind="show" id="d5K-7N-GXb"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ch2-wR-Xbj">
@@ -333,7 +338,7 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="jpassword" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qpp-N0-d35">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qpp-N0-d35">
                                 <rect key="frame" x="20" y="90" width="335" height="30"/>
                                 <color key="backgroundColor" white="0.94246419274166671" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -353,8 +358,8 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWR-dG-G4x">
-                                <rect key="frame" x="112" y="242" width="150" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWR-dG-G4x">
+                                <rect key="frame" x="112.5" y="242" width="150" height="40"/>
                                 <color key="backgroundColor" red="0.21176470588235294" green="0.21176470588235294" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="7l8-8Z-QfO"/>
@@ -387,6 +392,7 @@
                         <constraints>
                             <constraint firstItem="mRI-bT-bd9" firstAttribute="top" secondItem="aRC-nU-gxA" secondAttribute="top" constant="20" id="4kC-AR-jh8"/>
                             <constraint firstItem="Qpp-N0-d35" firstAttribute="top" secondItem="mRI-bT-bd9" secondAttribute="bottom" constant="20" id="ABp-KG-NJr"/>
+                            <constraint firstItem="nWR-dG-G4x" firstAttribute="centerX" secondItem="F2a-Q2-XlL" secondAttribute="centerX" id="Bc5-iW-ewU"/>
                             <constraint firstItem="aRC-nU-gxA" firstAttribute="trailing" secondItem="Qpp-N0-d35" secondAttribute="trailing" constant="20" id="Btw-Ii-Q6E"/>
                             <constraint firstItem="nWR-dG-G4x" firstAttribute="top" secondItem="ALg-43-CMn" secondAttribute="bottom" constant="16" id="GRf-sY-Jwh"/>
                             <constraint firstItem="aRC-nU-gxA" firstAttribute="trailing" secondItem="mRI-bT-bd9" secondAttribute="trailing" constant="20" id="H0O-hh-0he"/>

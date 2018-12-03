@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -20,16 +21,36 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     private var thoughtsCollectionRef: CollectionReference!
     private var thoughtsListener: ListenerRegistration!
     private var selectedCategory = CategoryEnum.funny.rawValue
+    private var handle: AuthStateDidChangeListenerHandle!
  
     override func viewDidLoad() {
         super.viewDidLoad()
         print("DEBUG 4")
         tableView.delegate = self
         tableView.dataSource = self
-        //tableView.rowHeight = UITableView.automaticDimension
-        //tableView.estimatedRowHeight = 80
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 80
         print("DEBUG 3")
         thoughtsCollectionRef = Firestore.firestore().collection(TESTDB_REF)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user == nil {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let loginVc = storyboard.instantiateViewController(withIdentifier: "loginVC")
+                self.present(loginVc, animated: true, completion: nil)
+            } else {
+                self.setListener()
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if thoughtsListener != nil {
+            thoughtsListener.remove()
+        }
     }
     
     // Action
@@ -53,6 +74,17 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         thoughtsListener.remove()
         setListener()
     }
+    
+    // This method logout user
+    @IBAction func logoutTapped(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signoutError as NSError {
+            debugPrint("Error signing out: \(signoutError)")
+        }
+    }
+    
     
     func setListener() {
         
@@ -86,14 +118,6 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                     }
             }
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        setListener()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        thoughtsListener.remove()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
