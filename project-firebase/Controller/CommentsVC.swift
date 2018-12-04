@@ -25,10 +25,13 @@ class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         tableView.delegate = self
         tableView.dataSource = self
+        
+        print(thought.text)
     }
     
     // Action
     @IBAction func addCommentAction(_ sender: Any) {
+        getAlertOK(title: "Welcome to My application", message: "Hello World")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,6 +44,19 @@ class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         return UITableViewCell()
+    }
+    
+    // This method get alert
+    func getAlertOK(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        getLog(message: "The \"OK\" alert occured.")
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    // This method get log
+    func getLog(message: String) {
+        NSLog(message)
     }
     
 

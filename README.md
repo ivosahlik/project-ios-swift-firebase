@@ -37,6 +37,9 @@ https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html
 ## Firebase Auth
 https://firebase.google.com/docs/auth/ios/manage-users
 
+## alert controller
+https://guides.codepath.com/ios/Using-UIAlertController
+
 
 
 

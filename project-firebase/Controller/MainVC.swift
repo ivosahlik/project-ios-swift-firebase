@@ -75,8 +75,24 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         setListener()
     }
     
-    // This method logout user
+    // This method call logout user via alerts
     @IBAction func logoutTapped(_ sender: Any) {
+        
+        // let alertController = UIAlertController(title: "title", message: "Log Out?", preferredStyle: UIAlertController.Style.alert)
+        let alertController = UIAlertController(title: "", message: "Are you sure you want to logout?", preferredStyle: .actionSheet)
+        let logoutAction = UIAlertAction(title: "Log Out", style: .destructive) { (action) in
+            self.logout()
+        }
+        alertController.addAction(logoutAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            // TODO
+        }
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    // This method logout
+    func logout() {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
@@ -84,7 +100,6 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             debugPrint("Error signing out: \(signoutError)")
         }
     }
-    
     
     func setListener() {
         
