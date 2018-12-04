@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CommentsVC: UIViewController {
+class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -22,11 +22,20 @@ class CommentsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     // Action
     @IBAction func addCommentAction(_ sender: Any) {
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
     
 
