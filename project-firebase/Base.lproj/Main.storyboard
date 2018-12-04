@@ -166,9 +166,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YiR-7y-xxX">
-                                <rect key="frame" x="0.0" y="64" width="375" height="476"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YiR-7y-xxX">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="74" id="4bT-SZ-ES2" customClass="CommentCell" customModule="project_firebase" customModuleProvider="target">
@@ -248,9 +247,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="YiR-7y-xxX" firstAttribute="leading" secondItem="N1O-3v-Ysl" secondAttribute="leading" id="2dw-pQ-yRN"/>
+                            <constraint firstItem="YiR-7y-xxX" firstAttribute="top" secondItem="N1O-3v-Ysl" secondAttribute="top" id="DDK-OP-MGf"/>
                             <constraint firstItem="1tu-3f-2Gv" firstAttribute="leading" secondItem="N1O-3v-Ysl" secondAttribute="leading" id="Joq-dr-45H"/>
+                            <constraint firstItem="YiR-7y-xxX" firstAttribute="trailing" secondItem="N1O-3v-Ysl" secondAttribute="trailing" id="PMj-vH-Cri"/>
                             <constraint firstItem="1tu-3f-2Gv" firstAttribute="trailing" secondItem="N1O-3v-Ysl" secondAttribute="trailing" id="Z00-h3-liL"/>
                             <constraint firstItem="1tu-3f-2Gv" firstAttribute="bottom" secondItem="N1O-3v-Ysl" secondAttribute="bottom" id="arq-ur-6dX"/>
+                            <constraint firstItem="1tu-3f-2Gv" firstAttribute="top" secondItem="YiR-7y-xxX" secondAttribute="bottom" id="sjz-W8-edd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="N1O-3v-Ysl"/>
                     </view>
