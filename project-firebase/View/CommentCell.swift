@@ -22,4 +22,14 @@ class CommentCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func configureCell(comment: Comment) {
+        username_text.text = comment.username
+        comment_txt.text = comment.commentTxt
+        
+        let formater = DateFormatter()
+        formater.dateFormat = "MMM d, hh:mm"
+        let timestamp = formater.string(from: comment.timestamp)
+        timestamp_text.text = timestamp
+    }
 }
