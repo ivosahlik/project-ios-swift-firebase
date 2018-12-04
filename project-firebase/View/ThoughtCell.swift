@@ -17,6 +17,7 @@ class ThoughtCell: UITableViewCell {
     @IBOutlet weak var timestamp_label: UILabel!
     @IBOutlet weak var likes_image: UIImageView!
     @IBOutlet weak var likesNum_label: UILabel!
+    @IBOutlet weak var commentsNum_label: UILabel!
     
     // Variables
     private var thought: Thought!
@@ -29,17 +30,20 @@ class ThoughtCell: UITableViewCell {
         likes_image.isUserInteractionEnabled = true
     }
     
+    // increment like tapped
     @objc func likeTapped() {
         Firestore.firestore().collection(TESTDB_REF).document(thought.documentId)
             .setData([NUM_LIKES : thought.numLikes + 1], merge: true)
     }
     
+    // set label from model Thought
     func configureCell(thought: Thought) {
         self.thought = thought
         username_label.text = thought.username
         text_label.text = thought.text
         likesNum_label.text = String(thought.numLikes)
         timestamp_label.text = getTimestampFormat(thought: thought, format: "MMM d, hh:mm")
+        commentsNum_label.text = String(thought.numComments)
     }
     
     /*
