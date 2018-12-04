@@ -30,8 +30,12 @@ class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     // Action
+    // This method add new comment
     @IBAction func addCommentAction(_ sender: Any) {
         getAlertOK(title: "Welcome to My application", message: "Hello World")
+        
+        // TODO
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
