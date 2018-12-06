@@ -48,14 +48,19 @@ class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             let thoughtDocument: DocumentSnapshot
             
+            print(self.thought.documentId)
+            
             do {
                 try thoughtDocument = transaction.getDocument(
                     self.firestore.collection(TESTDB_REF).document(self.thought.documentId)
+                    
                 )
             } catch let error as NSError {
                 debugPrint("Fetch error \(error.localizedDescription)")
                 return nil
             }
+            
+            print(thoughtDocument.data()?[NUM_COMMENTS] as! Int)
             
             guard let oldNumComments = thoughtDocument.data()?[NUM_COMMENTS] as? Int else { return nil}
             transaction.updateData([NUM_COMMENTS : oldNumComments + 1], forDocument: self.thoughtRef)
