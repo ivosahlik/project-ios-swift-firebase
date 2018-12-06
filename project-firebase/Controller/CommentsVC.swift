@@ -43,6 +43,7 @@ class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         guard let commentTxt = addCommentText.text else {return}
         
+        // Transaction
         firestore.runTransaction({ (transaction, error) -> Any? in
             
             let thoughtDocument: DocumentSnapshot
@@ -66,7 +67,6 @@ class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     COMMENT_TXT : commentTxt,
                     TIMESTAMP : FieldValue.serverTimestamp(),
                     USERNAME : self.username,
-                    
                 ],
                 forDocument: newNumComments)
             
@@ -78,7 +78,6 @@ class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 self.addCommentText.text = ""
             }
         }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
