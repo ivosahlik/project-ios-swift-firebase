@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -19,22 +21,63 @@ class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // Variables
     var thought : Thought!
     var comments = [Comment]()
+    var thoughtRef : DocumentReference!
+    var firestore = Firestore.firestore()
+    var username: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
         tableView.dataSource = self
-        
-        print(thought.text)
+        thoughtRef = firestore.collection(TESTDB_REF).document(thought.documentId)
+        if let name = Auth.auth().currentUser?.displayName {
+            username = name
+        }
     }
     
     // Action
     // This method add new comment
     @IBAction func addCommentAction(_ sender: Any) {
-        getAlertOK(title: "Welcome to My application", message: "Hello World")
+        // getAlertOK(title: "Welcome to My application", message: "Hello World")
         
-        // TODO
+        guard let commentTxt = addCommentText.text else {return}
+        
+        firestore.runTransaction({ (transaction, error) -> Any? in
+            
+            let thoughtDocument: DocumentSnapshot
+            
+            do {
+                try thoughtDocument = transaction.getDocument(
+                    self.firestore.collection(TESTDB_REF).document(self.thought.documentId)
+                )
+            } catch let error as NSError {
+                debugPrint("Fetch error \(error.localizedDescription)")
+                return nil
+            }
+            
+            guard let oldNumComments = thoughtDocument.data()?[NUM_COMMENTS] as? Int else { return nil}
+            transaction.updateData([NUM_COMMENTS : oldNumComments + 1], forDocument: self.thoughtRef)
+            
+            let newNumComments = self.firestore.collection(TESTDB_REF).document(self.thought.documentId).collection(COMMENT_REF).document()
+            
+            transaction.setData(
+                [
+                    COMMENT_TXT : commentTxt,
+                    TIMESTAMP : FieldValue.serverTimestamp(),
+                    USERNAME : self.username,
+                    
+                ],
+                forDocument: newNumComments)
+            
+            return nil
+        }) { (object, error) in
+            if let error = error {
+                debugPrint("Transaction failed: \(error)")
+            } else {
+                self.addCommentText.text = ""
+            }
+        }
         
     }
     

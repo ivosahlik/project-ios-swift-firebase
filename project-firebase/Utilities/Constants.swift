@@ -10,6 +10,7 @@ import Foundation
 
 let TESTDB_REF = "testdb"
 let USERS_REF = "users"
+let COMMENT_REF = "comments"
 
 let CATEGORY = "category"
 let NUM_COMMENTS = "numCommments"
@@ -19,3 +20,4 @@ let TIMESTAMP = "timestamp"
 let USERNAME = "username"
 let DATE_CREATED = "date_created"
 let ACTIVE_USER = "active_user"
+let COMMENT_TXT = "commentTxt"
