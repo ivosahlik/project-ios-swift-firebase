@@ -16,8 +16,6 @@ class CommentCell: UITableViewCell {
     @IBOutlet weak var comment_txt: UILabel!
     @IBOutlet weak var optionMenu: UIImageView!
     
-    // test bitbucket
-    
     // Variables
 
     override func awakeFromNib() {
