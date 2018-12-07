@@ -35,11 +35,17 @@ class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if let name = Auth.auth().currentUser?.displayName {
             username = name
         }
+        
+        // keyboard
+        self.view.bindToKeyboard()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        commentListener = Firestore.firestore().collection(TESTDB_REF).document(thought.documentId)
-            .collection(COMMENT_REF).addSnapshotListener({ (snapshot, error) in
+        commentListener = Firestore.firestore()
+            .collection(TESTDB_REF).document(thought.documentId)
+            .collection(COMMENT_REF)
+            .order(by: TIMESTAMP, descending: false)
+            .addSnapshotListener({ (snapshot, error) in
                 guard let snapshot = snapshot else {
                     debugPrint("Error fetching comment: \(error!)")
                     return

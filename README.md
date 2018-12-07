@@ -40,6 +40,9 @@ https://firebase.google.com/docs/auth/ios/manage-users
 ## alert controller
 https://guides.codepath.com/ios/Using-UIAlertController
 
+## switch toggler keyboard
+hardware - cmd k
+
 
 
 
