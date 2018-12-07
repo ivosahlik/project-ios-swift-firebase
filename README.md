@@ -43,6 +43,34 @@ https://guides.codepath.com/ios/Using-UIAlertController
 ## switch toggler keyboard
 hardware - cmd k
 
+## security rules
+
+service cloud.firestore {
+match /databases/{database}/documents {
+
+match /testdb/{thought=**} {
+allow read, write: if request.auth != null
+}
+
+match /users/{userId} {
+allow create
+allow read, write : if request.auth.id == userId
+}
+
+
+//     match /testdb/{thought} {
+//       allow read, write: if request.auth != null
+
+//       match /testdb/{thought}/comments/{comment} {
+//         allow read, write : if request.auth != null
+//       }
+//     }
+
+// match /testdb/{thought}/comments/{comment} {
+//   allow read, write : if request.auth != null
+// }
+}
+}
 
 
 
