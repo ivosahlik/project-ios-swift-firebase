@@ -23,6 +23,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     private var selectedCategory = CategoryEnum.funny.rawValue
     private var handle: AuthStateDidChangeListenerHandle!
  
+    // This method is called after the view controller
     override func viewDidLoad() {
         super.viewDidLoad()
         print("DEBUG 4")
@@ -34,6 +35,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         thoughtsCollectionRef = Firestore.firestore().collection(TESTDB_REF)
     }
     
+    // This method is called before the view controller's
     override func viewWillAppear(_ animated: Bool) {
         
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in

@@ -139,13 +139,13 @@
 		1D0BA6C621A3151500BA1F0A /* project-firebase */ = {
 			isa = PBXGroup;
 			children = (
+				1DB47AA521BA897F00CCD10E /* storyboard */,
 				1DB47A9621B3456100CCD10E /* enum */,
 				1D0BA70621A36B2400BA1F0A /* Utilities */,
 				1D0BA6FB21A34AC000BA1F0A /* Model */,
 				1D0BA6FD21A34ACC00BA1F0A /* View */,
 				1D0BA6FC21A34AC500BA1F0A /* Controller */,
 				1D0BA6C721A3151500BA1F0A /* AppDelegate.swift */,
-				1D0BA6CB21A3151500BA1F0A /* Main.storyboard */,
 				1D0BA6CE21A3151700BA1F0A /* Assets.xcassets */,
 				1D0BA6D021A3151700BA1F0A /* LaunchScreen.storyboard */,
 				1D0BA6D321A3151700BA1F0A /* Info.plist */,
@@ -216,6 +216,14 @@
 				1DB47A9721B3457D00CCD10E /* CategoryEnum.swift */,
 			);
 			path = enum;
+			sourceTree = "<group>";
+		};
+		1DB47AA521BA897F00CCD10E /* storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				1D0BA6CB21A3151500BA1F0A /* Main.storyboard */,
+			);
+			path = storyboard;
 			sourceTree = "<group>";
 		};
 		86C6BD54B21B1FAE330F3689 /* Pods */ = {
