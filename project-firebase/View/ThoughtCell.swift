@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 class ThoughtCell: UITableViewCell {
     
@@ -39,12 +40,24 @@ class ThoughtCell: UITableViewCell {
     
     // set label from model Thought
     func configureCell(thought: Thought) {
+        optionMenu.isHidden = true
         self.thought = thought
         username_label.text = thought.username
         text_label.text = thought.text
         likesNum_label.text = String(thought.numLikes)
         timestamp_label.text = getTimestampFormat(thought: thought, format: "MMM d, hh:mm")
         commentsNum_label.text = String(thought.numComments)
+        
+        if thought.userId == Auth.auth().currentUser?.uid {
+            optionMenu.isHidden = false
+            optionMenu.isUserInteractionEnabled = true
+            let tap = UITapGestureRecognizer(target: self, action: #selector(thoughtOptionsTapped))
+            optionMenu.addGestureRecognizer(tap)
+        }
+    }
+    
+    @objc func thoughtOptionsTapped() {
+        print("HELLO")
     }
     
     /*
