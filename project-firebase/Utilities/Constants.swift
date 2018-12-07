@@ -21,3 +21,6 @@ let USERNAME = "username"
 let DATE_CREATED = "date_created"
 let ACTIVE_USER = "active_user"
 let COMMENT_TXT = "commentTxt"
+let USER_ID = "userId"
+
+let ANONYMOUS = "Anonymous"

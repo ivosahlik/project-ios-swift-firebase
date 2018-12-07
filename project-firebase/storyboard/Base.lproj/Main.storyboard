@@ -95,6 +95,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ellipsis" translatesAutoresizingMaskIntoConstraints="NO" id="FSU-t1-ORT">
+                                                    <rect key="frame" x="370" y="14" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="DbW-VK-0Su"/>
+                                                        <constraint firstAttribute="width" constant="30" id="LMO-r6-A97"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Mj9-Y5-Bbz" firstAttribute="centerY" secondItem="evL-f8-6Sj" secondAttribute="centerY" id="0Y8-Jt-7f5"/>
@@ -105,15 +112,18 @@
                                                 <constraint firstItem="Mj9-Y5-Bbz" firstAttribute="leading" secondItem="evL-f8-6Sj" secondAttribute="trailing" constant="8" id="Bj2-4q-8Bz"/>
                                                 <constraint firstItem="evL-f8-6Sj" firstAttribute="top" secondItem="6SY-fz-22Q" secondAttribute="topMargin" constant="8" id="E1g-yc-hRD"/>
                                                 <constraint firstItem="MCI-lc-J7z" firstAttribute="top" secondItem="Woe-yt-eKV" secondAttribute="bottom" constant="8" id="LU1-3E-hGe"/>
+                                                <constraint firstItem="FSU-t1-ORT" firstAttribute="centerY" secondItem="Mj9-Y5-Bbz" secondAttribute="centerY" id="Q8t-3E-FGh"/>
                                                 <constraint firstItem="MCI-lc-J7z" firstAttribute="leading" secondItem="6SY-fz-22Q" secondAttribute="leading" constant="15" id="QrF-Mt-Lif"/>
                                                 <constraint firstItem="Woe-yt-eKV" firstAttribute="leading" secondItem="6SY-fz-22Q" secondAttribute="leadingMargin" id="hDE-eT-FzF"/>
                                                 <constraint firstItem="Mj9-Y5-Bbz" firstAttribute="leading" secondItem="evL-f8-6Sj" secondAttribute="trailing" constant="8" id="oI6-wq-vPb"/>
+                                                <constraint firstAttribute="trailing" secondItem="FSU-t1-ORT" secondAttribute="trailing" constant="14" id="zAP-ML-krj"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="commentsNum_label" destination="Giu-S6-KdB" id="eQd-S4-TzA"/>
                                             <outlet property="likesNum_label" destination="2BH-Hk-gPH" id="nQI-QF-p7y"/>
                                             <outlet property="likes_image" destination="Hdc-Ut-30V" id="3le-rh-ATl"/>
+                                            <outlet property="optionMenu" destination="FSU-t1-ORT" id="Bmg-Gd-3rx"/>
                                             <outlet property="text_label" destination="Woe-yt-eKV" id="xgv-s9-JGw"/>
                                             <outlet property="timestamp_label" destination="Mj9-Y5-Bbz" id="mQ2-sQ-2Cb"/>
                                             <outlet property="username_label" destination="evL-f8-6Sj" id="sX4-fT-94j"/>
@@ -156,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="248.80000000000001" y="205.54722638680661"/>
+            <point key="canvasLocation" x="247.82608695652175" y="204.91071428571428"/>
         </scene>
         <!--CommentsVC-->
         <scene sceneID="uc1-M6-Rlx">
@@ -198,6 +208,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ellipsis_dark" translatesAutoresizingMaskIntoConstraints="NO" id="h0C-Pg-e22">
+                                                    <rect key="frame" x="378" y="11.5" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="20v-hI-pfd"/>
+                                                        <constraint firstAttribute="width" constant="30" id="zgS-2j-qLu"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="LzT-rt-znG" secondAttribute="trailing" id="0NI-Uv-jW0"/>
@@ -205,15 +222,18 @@
                                                 <constraint firstItem="LzT-rt-znG" firstAttribute="top" secondItem="Gfg-7x-8gm" secondAttribute="bottom" constant="8" id="AYO-iU-sll"/>
                                                 <constraint firstItem="LzT-rt-znG" firstAttribute="leading" secondItem="qw9-Fg-vjU" secondAttribute="leadingMargin" id="BUC-g0-erZ"/>
                                                 <constraint firstItem="kcd-Bp-6fQ" firstAttribute="centerY" secondItem="Gfg-7x-8gm" secondAttribute="centerY" id="DYw-FF-2Og"/>
+                                                <constraint firstItem="h0C-Pg-e22" firstAttribute="trailing" secondItem="qw9-Fg-vjU" secondAttribute="trailingMargin" constant="14" id="bfF-6d-4XX"/>
                                                 <constraint firstItem="Gfg-7x-8gm" firstAttribute="top" secondItem="qw9-Fg-vjU" secondAttribute="topMargin" constant="8" id="cTz-rP-J9z"/>
                                                 <constraint firstItem="kcd-Bp-6fQ" firstAttribute="leading" secondItem="Gfg-7x-8gm" secondAttribute="trailing" constant="8" id="gar-QN-jps"/>
                                                 <constraint firstItem="LzT-rt-znG" firstAttribute="top" secondItem="kcd-Bp-6fQ" secondAttribute="bottom" constant="8" symbolic="YES" id="jbO-M4-1X7"/>
+                                                <constraint firstItem="h0C-Pg-e22" firstAttribute="centerY" secondItem="kcd-Bp-6fQ" secondAttribute="centerY" id="pP0-1Q-vuI"/>
                                                 <constraint firstItem="Gfg-7x-8gm" firstAttribute="leading" secondItem="qw9-Fg-vjU" secondAttribute="leadingMargin" id="rQR-ST-Qmy"/>
                                                 <constraint firstItem="LzT-rt-znG" firstAttribute="leading" secondItem="qw9-Fg-vjU" secondAttribute="leadingMargin" id="yE5-eb-f4c"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="comment_txt" destination="LzT-rt-znG" id="apd-Cs-Gwy"/>
+                                            <outlet property="optionMenu" destination="h0C-Pg-e22" id="wGE-r5-8AY"/>
                                             <outlet property="timestamp_text" destination="kcd-Bp-6fQ" id="95n-rB-GaW"/>
                                             <outlet property="username_text" destination="Gfg-7x-8gm" id="x9x-8z-hpL"/>
                                         </connections>
@@ -268,7 +288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uyg-Hc-NFV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1252" y="519.49025487256381"/>
+            <point key="canvasLocation" x="1250.7246376811595" y="518.30357142857144"/>
         </scene>
         <!--Add ThoughtVC-->
         <scene sceneID="etQ-ME-OGT">
@@ -572,6 +592,8 @@
     <resources>
         <image name="addThoughtIcon" width="21" height="24"/>
         <image name="commentIcon" width="26" height="22"/>
+        <image name="ellipsis" width="30" height="30"/>
+        <image name="ellipsis_dark" width="30" height="30"/>
         <image name="starIconFilled" width="20" height="19"/>
     </resources>
 </document>

@@ -17,14 +17,16 @@ class Thought {
     private(set) var numLikes: Int
     private(set) var numComments: Int
     private(set) var documentId: String
+    private(set) var userId: String
     
-    init(username: String, timestamp: Date, text: String, numLikes: Int, numComments: Int, documentId:  String) {
+    init(username: String, timestamp: Date, text: String, numLikes: Int, numComments: Int, documentId:  String, userId: String) {
         self.username = username
         self.timestamp = timestamp
         self.text = text
         self.numLikes = numLikes
         self.numComments = numComments
         self.documentId = documentId
+        self.userId = userId
     }
     
     // QuerySnapshot from Firebase import
@@ -35,16 +37,17 @@ class Thought {
         for document in snap.documents {
             let data = document.data()
             
-            let username = data["username"] as? String ?? "Anonymous"
-            let text = data["text"] as? String ?? ""
-            let timestamp = data["timestamp"] as? Date ?? Date()
-            let numLikes = data["numLikes"] as? Int ?? 0
+            let username = data[USERNAME] as? String ?? ANONYMOUS
+            let text = data[TEXT] as? String ?? ""
+            let timestamp = data[TIMESTAMP] as? Date ?? Date()
+            let numLikes = data[NUM_LIKES] as? Int ?? 0
             
-            let numCommments = data["numCommments"]! as! Int
+            let numCommments = data[NUM_COMMENTS]! as! Int
             
             let documentId = document.documentID
+            let userId = data[USER_ID] as? String ?? ""
             
-            let newThought = Thought(username: username, timestamp: timestamp, text: text, numLikes: numLikes, numComments: numCommments, documentId: documentId)
+            let newThought = Thought(username: username, timestamp: timestamp, text: text, numLikes: numLikes, numComments: numCommments, documentId: documentId, userId: userId)
             thoughts.append(newThought)
         }
         
