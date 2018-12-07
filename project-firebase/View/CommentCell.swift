@@ -14,6 +14,7 @@ class CommentCell: UITableViewCell {
     @IBOutlet weak var username_text: UILabel!
     @IBOutlet weak var timestamp_text: UILabel!
     @IBOutlet weak var comment_txt: UILabel!
+    @IBOutlet weak var optionMenu: UIImageView!
     
     
     // Variables
